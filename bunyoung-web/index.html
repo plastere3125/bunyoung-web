@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>㈜번영 홈페이지 시안 검토</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@400;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #F4F6FA; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .wrap { max-width: 860px; width: 100%; }
+
+    .top-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #E8F0FF; color: #0055CC;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .top-badge::before {
+      content: ''; width: 7px; height: 7px;
+      background: #0055CC; border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px; font-weight: 800; color: #1A1F36;
+      letter-spacing: -0.5px; margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 15px; color: #4A5568; margin-bottom: 48px; line-height: 1.6;
+    }
+
+    .cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #fff; border-radius: 20px;
+      border: 2px solid #E2E6EF;
+      overflow: hidden; text-decoration: none;
+      transition: all 0.25s;
+    }
+    .card:hover {
+      border-color: #0055CC;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,85,204,0.12);
+    }
+
+    .card-preview {
+      height: 220px; position: relative; overflow: hidden;
+    }
+    .preview-a {
+      background: linear-gradient(135deg, #1A2B4A 0%, #243659 50%, #1E3A6E 100%);
+    }
+    .preview-b {
+      background: linear-gradient(120deg, #0055CC 0%, #003F9E 100%);
+    }
+    .preview-bar {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+    }
+    .preview-bar-a { background: rgba(26,43,74,0.95); border-bottom: 1px solid rgba(201,168,76,0.3); }
+    .preview-bar-b { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    .preview-logo-a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 2px;
+    }
+    .preview-logo-b {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 800; color: #0055CC; letter-spacing: 1px;
+    }
+    .preview-nav-a { display: flex; gap: 14px; }
+    .preview-nav-a span { font-size: 8px; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+    .preview-nav-b { display: flex; gap: 12px; }
+    .preview-nav-b span { font-size: 8px; color: #4A5568; }
+    .preview-cta-a {
+      background: #C9A84C; color: #1A2B4A;
+      font-size: 8px; font-weight: 700; padding: 4px 10px; border-radius: 3px;
+    }
+    .preview-cta-b {
+      background: #FF6B2B; color: #fff;
+      font-size: 8px; font-weight: 700; padding: 4px 10px; border-radius: 6px;
+    }
+
+    .preview-content {
+      position: absolute; top: 64px; left: 24px; right: 24px;
+    }
+    .preview-h1-a {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 18px; font-weight: 900; color: #fff; line-height: 1.3;
+    }
+    .preview-h1-a em { color: #C9A84C; font-style: normal; }
+    .preview-h1-b {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 18px; font-weight: 900; color: #fff; line-height: 1.3;
+    }
+    .preview-sub-a {
+      font-size: 9px; color: rgba(255,255,255,0.5); margin-top: 8px; letter-spacing: 2px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .preview-badge-b {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,0.12); border-radius: 100px;
+      padding: 4px 10px; margin-bottom: 12px;
+    }
+    .preview-badge-b span { font-size: 8px; color: rgba(255,255,255,0.85); }
+    .preview-dot { width: 5px; height: 5px; background: #FF6B2B; border-radius: 50%; }
+
+    .preview-btns {
+      display: flex; gap: 8px; margin-top: 14px;
+    }
+    .preview-btn-gold {
+      background: #C9A84C; color: #1A2B4A;
+      font-size: 8px; font-weight: 700; padding: 6px 12px; border-radius: 3px;
+    }
+    .preview-btn-ghost {
+      border: 1px solid rgba(255,255,255,0.3); color: #fff;
+      font-size: 8px; padding: 6px 12px; border-radius: 3px;
+    }
+    .preview-btn-orange {
+      background: #FF6B2B; color: #fff;
+      font-size: 8px; font-weight: 700; padding: 6px 12px; border-radius: 6px;
+    }
+
+    .card-body { padding: 24px 28px 28px; }
+    .card-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .card-num-a { color: #C9A84C; }
+    .card-num-b { color: #0055CC; }
+
+    .card-title { font-size: 18px; font-weight: 700; color: #1A1F36; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: #4A5568; line-height: 1.6; margin-bottom: 20px; }
+
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .tag {
+      font-size: 11px; padding: 4px 12px; border-radius: 100px; font-weight: 600;
+    }
+    .tag-a { background: #F0F2F5; color: #1A2B4A; }
+    .tag-b { background: #E8F0FF; color: #0055CC; }
+
+    .card-link {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 700;
+      padding: 12px 20px; border-radius: 10px;
+      text-decoration: none; transition: all 0.2s;
+      justify-content: center;
+    }
+    .link-a { background: #1A2B4A; color: #fff; }
+    .link-a:hover { background: #243659; }
+    .link-b { background: #0055CC; color: #fff; }
+    .link-b:hover { background: #003F9E; }
+    .link-arrow { font-size: 16px; }
+
+    .footer-note {
+      text-align: center; font-size: 12px; color: #8896B0;
+      border-top: 1px solid #E2E6EF; padding-top: 28px;
+    }
+    .footer-note strong { color: #4A5568; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      .cards { grid-template-columns: 1fr; gap: 16px; }
+      .card-preview { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-badge">DESIGN REVIEW</div>
+  <h1>㈜번영 홈페이지 시안</h1>
+  <p class="subtitle">아래 두 가지 디자인 시안을 확인하신 후 선호하시는 방향을 알려주세요.</p>
+
+  <div class="cards">
+    <!-- 시안A -->
+    <a class="card" href="sian-a/index.html">
+      <div class="card-preview preview-a">
+        <div class="preview-bar preview-bar-a">
+          <span class="preview-logo-a">BUNYOUNG</span>
+          <div class="preview-nav-a">
+            <span>ABOUT</span>
+            <span>PRODUCTS</span>
+            <span>PORTFOLIO</span>
+            <span class="preview-cta-a">GET QUOTE</span>
+          </div>
+        </div>
+        <div class="preview-content">
+          <p class="preview-sub-a">㈜ BUNYOUNG · SINCE 1997</p>
+          <p class="preview-h1-a">거품없는 가격,<br><em>고품질</em> 인쇄</p>
+          <div class="preview-btns">
+            <span class="preview-btn-gold">무료 견적 문의</span>
+            <span class="preview-btn-ghost">제품 보러가기</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-num card-num-a">OPTION A</p>
+        <p class="card-title">네이비 & 골드 — 프리미엄 B2B형</p>
+        <p class="card-desc">신뢰감·전문성을 강조한 다크 네이비 베이스. 고급스러운 골드 포인트로 브랜드 격을 높이는 방향입니다.</p>
+        <div class="card-tags">
+          <span class="tag tag-a">네이비 #1A2B4A</span>
+          <span class="tag tag-a">골드 #C9A84C</span>
+          <span class="tag tag-a">고정 헤더</span>
+          <span class="tag tag-a">2단 히어로</span>
+        </div>
+        <span class="card-link link-a">시안 A 보기 <span class="link-arrow">→</span></span>
+      </div>
+    </a>
+
+    <!-- 시안B -->
+    <a class="card" href="sian-b/index.html">
+      <div class="card-preview preview-b">
+        <div class="preview-bar preview-bar-b">
+          <span class="preview-logo-b">BUNYOUNG</span>
+          <div class="preview-nav-b">
+            <span>PRODUCTS</span>
+            <span>PORTFOLIO</span>
+            <span class="preview-cta-b">GET QUOTE</span>
+          </div>
+        </div>
+        <div class="preview-content">
+          <div class="preview-badge-b">
+            <span class="preview-dot"></span>
+            <span>LABEL &amp; STICKER SPECIALIST</span>
+          </div>
+          <p class="preview-h1-b">라벨·스티커<br>전문 제조기업</p>
+          <div class="preview-btns">
+            <span class="preview-btn-orange">무료 견적 문의 →</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-num card-num-b">OPTION B</p>
+        <p class="card-title">블루 & 오렌지 — 직관적 랜딩형</p>
+        <p class="card-desc">강렬한 블루와 오렌지 CTA로 문의 전환을 극대화하는 방향. 히어로 즉시 견적 폼으로 행동을 유도합니다.</p>
+        <div class="card-tags">
+          <span class="tag tag-b">블루 #0055CC</span>
+          <span class="tag tag-b">오렌지 #FF6B2B</span>
+          <span class="tag tag-b">상단 고정</span>
+          <span class="tag tag-b">즉시 견적폼</span>
+        </div>
+        <span class="card-link link-b">시안 B 보기 <span class="link-arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+
+  <p class="footer-note">
+    <strong>Designed by 이음컬쳐</strong> &nbsp;|&nbsp; 본 시안은 검토용 목적으로 제작되었습니다.
+  </p>
+</div>
+</body>
+</html>

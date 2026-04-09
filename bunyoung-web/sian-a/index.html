@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>㈜번영 | 라벨·스티커 인쇄 전문기업</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --navy: #1A2B4A;
+      --navy-mid: #243659;
+      --navy-light: #2E4270;
+      --gold: #C9A84C;
+      --gold-light: #E0C06A;
+      --white: #FFFFFF;
+      --off-white: #F7F8FA;
+      --gray-100: #F0F2F5;
+      --gray-300: #BCC4D0;
+      --gray-500: #6B7A8D;
+      --gray-700: #3A4558;
+      --text-dark: #1A2B4A;
+      --text-mid: #4A5568;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--text-dark); background: var(--white); }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 70px;
+      background: rgba(26, 43, 74, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .logo-mark {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px; font-weight: 700; color: var(--white);
+      letter-spacing: 2px;
+    }
+    .logo-sub {
+      font-size: 10px; color: var(--gold); letter-spacing: 3px;
+      font-family: 'Montserrat', sans-serif; font-weight: 400;
+      display: block; margin-top: -2px;
+    }
+    nav { display: flex; gap: 40px; align-items: center; }
+    nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none; font-size: 13px; font-weight: 500;
+      letter-spacing: 1px; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy) !important;
+      padding: 10px 22px; border-radius: 4px;
+      font-weight: 700 !important; letter-spacing: 0.5px !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1E3A6E 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-top: 70px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(46, 66, 112, 0.6) 0%, transparent 40%);
+    }
+    .hero-grid {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 0 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 8px 18px; border-radius: 100px; margin-bottom: 32px;
+    }
+    .hero-badge span {
+      font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 2px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--gold); border-radius: 50%;
+    }
+    .hero-title {
+      font-size: 54px; font-weight: 900; line-height: 1.15;
+      color: var(--white); margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+    .hero-title em {
+      font-style: normal; color: var(--gold);
+    }
+    .hero-sub-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.5);
+      letter-spacing: 4px; margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.65);
+      margin-bottom: 48px; max-width: 480px;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+      border: none; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      padding: 16px 36px; border-radius: 4px;
+      font-size: 14px; font-weight: 500; letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+      text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-right {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .hero-stat-card:hover { border-color: rgba(201, 168, 76, 0.4); }
+    .hero-stat-card:first-child { grid-column: span 2; }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px; font-weight: 800; color: var(--gold);
+      line-height: 1;
+    }
+    .stat-unit { font-size: 18px; font-weight: 600; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+    .stat-icon { font-size: 28px; margin-bottom: 12px; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 100px 60px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { margin-bottom: 60px; }
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      letter-spacing: 4px; display: block; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 38px; font-weight: 800; color: var(--text-dark);
+      line-height: 1.2; letter-spacing: -0.5px;
+    }
+    .section-title .accent { color: var(--navy); }
+    .section-desc {
+      font-size: 15px; color: var(--text-mid); margin-top: 16px;
+      line-height: 1.8; max-width: 560px;
+    }
+    .divider {
+      width: 48px; height: 3px; background: var(--gold);
+      margin: 20px 0;
+    }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--off-white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-visual {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 16px; padding: 60px 48px;
+      position: relative; overflow: hidden;
+    }
+    .about-visual::before {
+      content: '';
+      position: absolute; top: -30px; right: -30px;
+      width: 180px; height: 180px;
+      border: 40px solid rgba(201, 168, 76, 0.15);
+      border-radius: 50%;
+    }
+    .about-visual::after {
+      content: '';
+      position: absolute; bottom: -20px; left: -20px;
+      width: 120px; height: 120px;
+      border: 30px solid rgba(201, 168, 76, 0.1);
+      border-radius: 50%;
+    }
+    .about-big-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 90px; font-weight: 900; color: var(--gold);
+      line-height: 1; opacity: 0.9;
+      position: relative; z-index: 1;
+    }
+    .about-big-label {
+      font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 3px;
+      font-family: 'Montserrat', sans-serif; margin-top: 4px;
+      position: relative; z-index: 1;
+    }
+    .about-big-desc {
+      font-size: 28px; font-weight: 700; color: var(--white);
+      margin-top: 24px; line-height: 1.4;
+      position: relative; z-index: 1;
+    }
+
+    .mission-list { display: flex; flex-direction: column; gap: 24px; }
+    .mission-item {
+      display: flex; gap: 20px; align-items: flex-start;
+    }
+    .mission-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: var(--navy); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .mission-text h4 {
+      font-size: 16px; font-weight: 700; color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .mission-text p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+    /* ─── PRODUCTS ─── */
+    .products { background: var(--white); }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .product-card {
+      background: var(--white); border-radius: 12px;
+      border: 1px solid var(--gray-100);
+      overflow: hidden; transition: all 0.3s; cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(26, 43, 74, 0.12);
+      border-color: var(--navy-light);
+    }
+    .product-thumb {
+      height: 240px;
+      position: relative; overflow: hidden;
+    }
+    .product-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-thumb img { transform: scale(1.05); }
+    .product-thumb-label {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--navy); color: var(--white);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      padding: 5px 10px; border-radius: 4px; z-index: 1;
+    }
+    .product-thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,43,74,0.15) 0%, transparent 50%);
+    }
+    .product-info { padding: 24px; }
+    .product-name {
+      font-size: 18px; font-weight: 700; color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .product-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+    .product-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: var(--off-white); border-radius: 4px;
+      padding: 4px 10px; font-size: 11px; color: var(--gray-500);
+      margin-top: 14px; font-weight: 500;
+    }
+
+    /* ─── CASES ─── */
+    .cases { background: var(--off-white); }
+    .cases-tabs {
+      display: flex; gap: 8px; margin-bottom: 48px;
+    }
+    .tab-btn {
+      padding: 12px 28px; border-radius: 100px;
+      font-size: 14px; font-weight: 500; cursor: pointer;
+      border: 1px solid var(--gray-300); background: var(--white);
+      color: var(--gray-500); transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--navy); color: var(--white); border-color: var(--navy);
+    }
+    .cases-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .case-card {
+      background: var(--white); border-radius: 12px;
+      overflow: hidden; transition: all 0.3s;
+    }
+    .case-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(26,43,74,0.1); }
+    .case-thumb {
+      height: 260px;
+      position: relative; overflow: hidden;
+    }
+    .case-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .case-card:hover .case-thumb img { transform: scale(1.05); }
+    .case-thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,43,74,0.2) 0%, transparent 50%);
+    }
+    .case-info { padding: 20px; }
+    .case-category {
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: 2px; font-family: 'Montserrat', sans-serif;
+      margin-bottom: 6px; display: block;
+    }
+    .case-name { font-size: 16px; font-weight: 700; color: var(--text-dark); }
+    .case-desc { font-size: 13px; color: var(--text-mid); margin-top: 6px; line-height: 1.5; }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 100px 60px;
+    }
+    .contact-inner { max-width: 1200px; margin: 0 auto; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .contact-left .section-title { color: var(--white); }
+    .contact-left .section-label { color: var(--gold); }
+    .contact-left .section-desc { color: rgba(255,255,255,0.65); }
+    .contact-left .divider { background: var(--gold); }
+
+    .contact-options {
+      display: flex; flex-direction: column; gap: 16px; margin-top: 40px;
+    }
+    .contact-option {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(255,255,255,0.08); border-radius: 12px;
+      padding: 20px 24px; border: 1px solid rgba(255,255,255,0.12);
+      transition: all 0.2s; cursor: pointer;
+    }
+    .contact-option:hover {
+      background: rgba(201, 168, 76, 0.15);
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+    .contact-option-icon {
+      width: 48px; height: 48px; background: var(--gold);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .contact-option-text h4 { font-size: 15px; font-weight: 700; color: var(--white); }
+    .contact-option-text p { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+    .contact-form {
+      background: var(--white); border-radius: 16px; padding: 48px;
+    }
+    .form-title {
+      font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: var(--gray-500); margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      border: 1px solid var(--gray-300); border-radius: 8px;
+      font-size: 14px; color: var(--text-dark);
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--off-white);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--navy);
+    }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-submit {
+      width: 100%; padding: 16px;
+      background: var(--navy); color: var(--white);
+      border: none; border-radius: 8px; font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+      letter-spacing: 1px; transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--navy-light); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0F1A2E; padding: 48px 60px;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px; font-weight: 700; color: var(--white);
+      letter-spacing: 2px;
+    }
+    .footer-logo-sub {
+      font-size: 11px; color: var(--gold); letter-spacing: 2px; display: block; margin-top: 4px;
+    }
+    .footer-info { text-align: center; }
+    .footer-info p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+    .footer-copy {
+      font-size: 11px; color: rgba(255,255,255,0.3);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Scroll indicator */
+    .scroll-down {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.4); font-size: 10px; letter-spacing: 2px;
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+      animation: scrollDown 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      header { padding: 0 32px; }
+      nav { gap: 24px; }
+      .hero-content { padding: 0 32px; gap: 48px; }
+      section { padding: 80px 32px; }
+      .contact { padding: 80px 32px; }
+      footer { padding: 40px 32px; }
+      .hero-title { font-size: 44px; }
+      .about-grid { gap: 48px; }
+      .contact-grid { gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      /* Header */
+      header { padding: 0 20px; height: 60px; }
+      .logo img { height: 28px !important; }
+      nav { gap: 16px; }
+      nav a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 8px 16px; font-size: 12px; }
+
+      /* Hero */
+      .hero { padding-top: 60px; }
+      .hero-content {
+        padding: 40px 20px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-title { font-size: 36px; }
+      .hero-sub-title { font-size: 13px; }
+      .hero-desc { font-size: 14px; margin-bottom: 32px; max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .hero-badge { margin-bottom: 20px; }
+      .hero-right {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+      .hero-stat-card:first-child { grid-column: span 2; }
+      .stat-num { font-size: 32px; }
+      .scroll-down { display: none; }
+
+      /* Sections */
+      section { padding: 60px 20px; }
+      .section-title { font-size: 28px; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-big-num { font-size: 64px; }
+      .about-big-desc { font-size: 22px; }
+
+      /* Products */
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .product-thumb { height: 180px; }
+      .product-name { font-size: 15px; }
+
+      /* Cases */
+      .cases-grid { grid-template-columns: 1fr; }
+      .cases-tabs { flex-wrap: wrap; gap: 6px; }
+      .tab-btn { padding: 8px 18px; font-size: 13px; }
+
+      /* Contact */
+      .contact { padding: 60px 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      footer { padding: 40px 20px; }
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+      .footer-info { order: 2; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 30px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-thumb { height: 200px; }
+      .hero-right { grid-template-columns: 1fr; }
+      .hero-stat-card:first-child { grid-column: span 1; }
+      .btn-primary, .btn-outline { padding: 14px 24px; width: 100%; text-align: center; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="Logo-02.svg" alt="번영 로고" style="height:38px; width:auto;">
+  </div>
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#cases">PORTFOLIO</a>
+    <a href="#contact" class="nav-cta">GET QUOTE</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span>LABEL &amp; STICKER SPECIALIST</span>
+      </div>
+      <p class="hero-sub-title">㈜ BUNYOUNG</p>
+      <h1 class="hero-title">
+        거품없는 가격,<br>
+        <em>고품질</em> 인쇄,<br>
+        신속한 납기
+      </h1>
+      <p class="hero-desc">
+        1997년 설립 이후 30년 가까운 노하우로 아트지, 유포지, 투명지, 형압, 보안 스티커 등
+        모든 라벨·스티커를 전문 제작합니다.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">무료 견적 문의</a>
+        <a href="#products" class="btn-outline">제품 보러가기</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stat-card" style="background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.3);">
+        <div class="stat-icon">🏭</div>
+        <div class="stat-num">27<span class="stat-unit">년</span></div>
+        <div class="stat-label">라벨·스티커 전문 제조 경력</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-icon">🖨️</div>
+        <div class="stat-num">6<span class="stat-unit">종</span></div>
+        <div class="stat-label">전문 제품 라인업</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-num">당일<span class="stat-unit"></span></div>
+        <div class="stat-label">빠른 샘플·상담 응대</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-down">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-big-num">1997</div>
+        <div class="about-big-label">ESTABLISHED</div>
+        <div class="about-big-desc">제품라벨 제조<br>전문기업 ㈜번영</div>
+      </div>
+      <div>
+        <div class="section-header">
+          <span class="section-label">ABOUT US</span>
+          <h2 class="section-title">신뢰받는<br>라벨 전문 파트너</h2>
+          <div class="divider"></div>
+          <p class="section-desc">
+            번영인쇄는 1997년 설립한 제품라벨 제조 전문회사입니다.
+            일반스티커부터 자동 라벨 부착기에 사용되는 각종 세제, 화장품, 식품용기 라벨,
+            전기 관련 라벨, 자동차 부품라벨 등 특수라벨까지 전문 취급합니다.
+          </p>
+        </div>
+        <div class="mission-list">
+          <div class="mission-item">
+            <div class="mission-icon">⚙️</div>
+            <div class="mission-text">
+              <h4>최고의 생산 능력</h4>
+              <p>최신 디지털 설비를 이용한 최단기간 대량 생산 능력을 갖추고 있습니다.</p>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="mission-icon">🎨</div>
+            <div class="mission-text">
+              <h4>고품질 상품</h4>
+              <p>디지털 출력으로 선명한 색상과 최고 품질의 결과물을 제공합니다.</p>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="mission-icon">💰</div>
+            <div class="mission-text">
+              <h4>가격 경쟁력 확보</h4>
+              <p>원단 상시 선구매를 통한 경쟁력 있는 가격을 유지합니다.</p>
+            </div>
+          </div>
+          <div class="mission-item">
+            <div class="mission-icon">✅</div>
+            <div class="mission-text">
+              <h4>신뢰성과 고객서비스</h4>
+              <p>상담부터 결과물 납품까지 전 단계별 철저한 검수를 진행합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">PRODUCTS</span>
+      <h2 class="section-title">제품소개</h2>
+      <div class="divider"></div>
+      <p class="section-desc">아트지부터 보안 스티커까지, 모든 종류의 라벨·스티커를 전문 제작합니다.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">ART</span>
+          <img src="https://picsum.photos/seed/art-label-sticker/600/480" alt="아트지 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">아트지 스티커</div>
+          <p class="product-desc">선명한 인쇄 품질과 뛰어난 접착력. 식품, 화장품, 공산품 라벨에 최적화된 기본형 스티커입니다.</p>
+          <span class="product-tag">범용 · 대량생산 가능</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">YUPO</span>
+          <img src="https://picsum.photos/seed/yupo-waterproof-label/600/480" alt="유포지 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">유포지 스티커</div>
+          <p class="product-desc">방수성이 뛰어나 세제, 음료, 화장품 등 수분 환경에 적합한 합성지 스티커입니다.</p>
+          <span class="product-tag">방수 · 내구성</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">CLEAR</span>
+          <img src="https://picsum.photos/seed/clear-transparent-label/600/480" alt="투명지 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">투명지 스티커</div>
+          <p class="product-desc">무색 투명 재질로 제품에 붙여도 용기가 그대로 보이는 고급스러운 연출이 가능합니다.</p>
+          <span class="product-tag">고급감 · 투명 연출</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">FOIL</span>
+          <img src="https://picsum.photos/seed/foil-gold-label-print/600/480" alt="형압 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">형압 스티커 (금·은)</div>
+          <p class="product-desc">금박·은박 형압 처리로 고급 브랜드 느낌을 주는 프리미엄 라벨 제작이 가능합니다.</p>
+          <span class="product-tag">프리미엄 · 금은박</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">SECURITY</span>
+          <img src="https://picsum.photos/seed/security-tamper-label/600/480" alt="보안 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">보안 스티커</div>
+          <p class="product-desc">개봉 여부 확인, 위변조 방지 등 보안 목적에 특화된 특수 기능성 스티커입니다.</p>
+          <span class="product-tag">위변조 방지</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="product-thumb-label">CUSTOM</span>
+          <img src="https://picsum.photos/seed/custom-special-sticker/600/480" alt="기타 스티커">
+          <div class="product-thumb-overlay"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-name">기타 스티커</div>
+          <p class="product-desc">데드롱, 전사 스티커 등 고객 맞춤형 특수 스티커를 상담을 통해 제작해드립니다.</p>
+          <span class="product-tag">맞춤 제작 가능</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">PORTFOLIO</span>
+      <h2 class="section-title">제작사례</h2>
+      <div class="divider"></div>
+      <p class="section-desc">식품부터 산업용까지, 다양한 분야의 라벨 제작 사례를 확인해보세요.</p>
+    </div>
+    <div class="cases-tabs">
+      <button class="tab-btn active">전체보기</button>
+      <button class="tab-btn">식품라벨</button>
+      <button class="tab-btn">산업라벨</button>
+      <button class="tab-btn">다양한 사례</button>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-thumb">
+          <img src="https://picsum.photos/seed/food-label-bottle/800/600" alt="식품 라벨">
+          <div class="case-thumb-overlay"></div>
+        </div>
+        <div class="case-info">
+          <span class="case-category">FOOD LABEL</span>
+          <div class="case-name">식품 라벨</div>
+          <p class="case-desc">음료, 식품용기, 가공식품 등 식품 인증 기준을 충족하는 고품질 식품 라벨</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-thumb">
+          <img src="https://picsum.photos/seed/industrial-parts-label/800/600" alt="산업 라벨">
+          <div class="case-thumb-overlay"></div>
+        </div>
+        <div class="case-info">
+          <span class="case-category">INDUSTRIAL LABEL</span>
+          <div class="case-name">산업 라벨</div>
+          <p class="case-desc">자동차 부품, 전기전자, 화학제품 등 내열·내화학성이 요구되는 산업용 특수 라벨</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-thumb">
+          <img src="https://picsum.photos/seed/cosmetic-beauty-label/800/600" alt="다양한 사례">
+          <div class="case-thumb-overlay"></div>
+        </div>
+        <div class="case-info">
+          <span class="case-category">VARIOUS CASES</span>
+          <div class="case-name">다양한 사례</div>
+          <p class="case-desc">화장품, 세제, 의약외품 등 업종을 가리지 않는 폭넓은 라벨 제작 경험</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <span class="section-label">CONTACT</span>
+        <h2 class="section-title">문의하기</h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          라벨·스티커 제작이 필요하신가요?<br>
+          견적 문의부터 샘플 요청까지 빠르게 도와드립니다.
+        </p>
+        <div class="contact-options">
+          <div class="contact-option">
+            <div class="contact-option-icon">📋</div>
+            <div class="contact-option-text">
+              <h4>견적 문의</h4>
+              <p>제품 종류, 수량, 규격을 알려주시면 최적 견적을 드립니다</p>
+            </div>
+          </div>
+          <div class="contact-option">
+            <div class="contact-option-icon">📦</div>
+            <div class="contact-option-text">
+              <h4>샘플 요청</h4>
+              <p>실물 샘플을 받아보신 후 품질을 직접 확인하세요</p>
+            </div>
+          </div>
+          <div class="contact-option">
+            <div class="contact-option-icon">⚡</div>
+            <div class="contact-option-text">
+              <h4>빠른 상담</h4>
+              <p>긴급 제작이 필요하신 경우 빠른 대응 가능합니다</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">무료 견적 문의</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>회사명 / 성함</label>
+            <input type="text" placeholder="예) ㈜홍길동">
+          </div>
+          <div class="form-group">
+            <label>연락처</label>
+            <input type="tel" placeholder="010-0000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>문의 유형</label>
+          <select>
+            <option>견적 문의</option>
+            <option>샘플 요청</option>
+            <option>제품 상담</option>
+            <option>기타</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>제품 종류</label>
+          <select>
+            <option>아트지 스티커</option>
+            <option>유포지 스티커</option>
+            <option>투명지 스티커</option>
+            <option>형압 스티커 (금·은)</option>
+            <option>보안 스티커</option>
+            <option>기타 스티커</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>문의 내용</label>
+          <textarea placeholder="규격, 수량, 용도 등을 알려주시면 더 정확한 견적을 드릴 수 있습니다."></textarea>
+        </div>
+        <button class="form-submit">견적 문의 보내기 →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <img src="Logo-02.svg" alt="번영 로고" style="height:32px; width:auto; margin-bottom:6px; display:block;">
+    </div>
+    <div class="footer-info">
+      <p>㈜ 번영 | 사업자등록번호: 000-00-00000<br>
+      Tel. 000-0000-0000 | Email. info@bunyoung.co.kr</p>
+    </div>
+    <div class="footer-copy">
+      © 2025 BUNYOUNG. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
